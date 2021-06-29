@@ -32,8 +32,9 @@ namespace kakaoSkill.Controllers {
                 Dictionary<string, object> simpleText = new Dictionary<string, object>();
                 List<Dictionary<string, object>> outputs = new List<Dictionary<string, object>>();
                 Dictionary<string, object> template = new Dictionary<string, object>();
-                text.Add("text", CreateText(value));
-                //text.Add("포켓몬", "자 이제 시작이야 내꿈을~");
+                text.Add("text", "가즈아1234");
+                text.Add("level", "6");
+                text.Add("Song", "자 이제 시작이야~");
                 simpleText.Add("simpleText", text);
                 outputs.Add(simpleText);
 
@@ -42,20 +43,14 @@ namespace kakaoSkill.Controllers {
                 response.Add("template", template);
             }
             catch (Exception e) {
-
+                Console.WriteLine(e.Message + "\n"+e.StackTrace);
             }
 
             return response;
         }
 
-        public string CreateText(dynamic val) {
+        public string CreateText(string val) {
             string text = "Default";
-            try {
-                text = val;
-            }
-            catch {
-
-            }
             return text;
         }
 
