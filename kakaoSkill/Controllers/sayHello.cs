@@ -35,17 +35,17 @@ namespace kakaoSkill.Controllers {
 
         // POST api/<sayHello>
         [HttpPost]
-        public dynamic Post(JObject value) {
-            
+        public dynamic Post([FromBody]JObject vals) {
+            Dialog d = new Dialog(vals);
             Dictionary<string, object> response = new Dictionary<string, object>();
+
             try {
                 Dictionary<string, object> text = new Dictionary<string, object>();
                 Dictionary<string, object> simpleText = new Dictionary<string, object>();
                 List<Dictionary<string, object>> outputs = new List<Dictionary<string, object>>();
                 Dictionary<string, object> template = new Dictionary<string, object>();
-                text.Add("text", "가즈아1234");
-                text.Add("level", "6");
-                text.Add("Song", "자 이제 시작이야~");
+
+                text.Add("text", d.Utterance + "1234");
                 simpleText.Add("simpleText", text);
                 outputs.Add(simpleText);
 
@@ -54,10 +54,11 @@ namespace kakaoSkill.Controllers {
                 response.Add("template", template);
             }
             catch (Exception e) {
-                Console.WriteLine(e.Message + "\n"+e.StackTrace);
+                Console.WriteLine(e.Message+"\n"+e.StackTrace); 
             }
 
             return response;
+
         }
 
         // PUT api/<sayHello>/5
