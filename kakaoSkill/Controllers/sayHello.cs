@@ -60,44 +60,6 @@ namespace kakaoSkill.Controllers {
             return response;
         }
 
-        public void CheckText(JObject value) {
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            try {
-                Console.WriteLine(value.ToString());
-            }
-            catch(Exception ex) {
-                Console.WriteLine("Error @ 1");
-            }
-            try {
-                Console.WriteLine(value["userRequest"]["utterance"].ToString());
-            }
-            catch (Exception ex) {
-                Console.WriteLine("Error @ 2");
-            }
-            try {
-                Console.WriteLine(value["userRequest"]["user"]["id"].ToString());
-            }
-            catch (Exception ex) {
-                Console.WriteLine("Error @ 3");
-            }
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-        }
-        public string FindWithKeyString(JObject jobj, string key) {
-            if (jobj.ContainsKey(key)) {
-                return jobj[key].ToString();
-            }
-            return "";
-        }
-        public JObject FindWithKeyObject(JObject jobj, string key) {
-            if (jobj.ContainsKey(key)) {
-            }
-            return null;
-        }
         // PUT api/<sayHello>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value) {
