@@ -18,4 +18,7 @@ namespace kakaoSkill {
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
     }
+    public static class DATA {
+        public static string temp;
+    }
 }
